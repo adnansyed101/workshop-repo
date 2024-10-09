@@ -1,13 +1,23 @@
-function App() {
+function ListItem(props) {
+  return <li>{props.animal}</li>;
+}
+
+function List(props) {
   return (
-    <div class="container">
-      <h1>Test title</h1>
-      <svg>
-        <circle cx="25" cy="75" r="20" stroke="green" strokeWidth="2" />
-      </svg>
-      <form>
-        <input type="text" />
-      </form>
+    <ul>
+      {props.animals.map((animal) => {
+        return <ListItem key={animal} animal={animal}/>;
+      })}
+    </ul>
+  );
+}
+
+function App() {
+  const animals = ["Lion", "Cow", "Snake", "Lizard"];
+  return (
+    <div>
+      <h1>Animals:</h1>
+      <List animals={animals} />
     </div>
   );
 }
