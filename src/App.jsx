@@ -1,31 +1,31 @@
-function ListItem(props) {
-  return <li>{props.animal}</li>;
-}
-
-function List(props) {
-  if (!props.animals) {
-    return <div>Loading...........</div>;
-  }
-
-  if (props.animals.length === 0) {
-    return <div>There are no animals in the list!</div>;
-  }
-
+function Button({
+  text = "Click Me!",
+  color = "blues",
+  fontSize = 12,
+  handleClick,
+}) {
+  const buttoStyle = {
+    color: color,
+    fontSize: fontSize + "px",
+  };
   return (
-    <ul>
-      {props.animals.map((animal) => {
-        return animal.startsWith("L") && <li key={animal}>{animal}</li>;
-      })}
-    </ul>
+    <button
+      onClick={() => handleClick("https://www.theodinproject.com")}
+      style={buttoStyle}
+    >
+      {text}
+    </button>
   );
 }
 
 function App() {
-  const animals = [];
+  const handleButtonClick = (url) => {
+    window.location.href = url;
+  };
+
   return (
     <div>
-      <h1>Animals:</h1>
-      <List animals={animals} />
+      <Button handleClick={handleButtonClick} />
     </div>
   );
 }
