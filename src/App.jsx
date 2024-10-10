@@ -1,32 +1,15 @@
-function Button({
-  text = "Click Me!",
-  color = "blues",
-  fontSize = 12,
-  handleClick,
-}) {
-  const buttoStyle = {
-    color: color,
-    fontSize: fontSize + "px",
-  };
-  return (
-    <button
-      onClick={() => handleClick("https://www.theodinproject.com")}
-      style={buttoStyle}
-    >
-      {text}
-    </button>
-  );
-}
+import { useState } from "react";
 
 function App() {
-  const handleButtonClick = (url) => {
-    window.location.href = url;
-  };
+  const [value, setValue] = useState("");
+  console.log(value);
 
   return (
-    <div>
-      <Button handleClick={handleButtonClick} />
-    </div>
+    <input
+      type="text"
+      value={value}
+      onChange={(event) => setValue(event.target.value)}
+    />
   );
 }
 
