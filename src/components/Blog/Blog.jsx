@@ -1,17 +1,38 @@
 import PropTypes from "prop-types";
 
-const Blog = ({blog}) => {
-    console.log(blog);
-    
-    return (
+const Blog = ({ blog }) => {
+  const {
+    title,
+    cover,
+    reading_time,
+    author,
+    author_img,
+    posted_date,
+    hashtags,
+  } = blog;
+  return (
+    <div>
+      <img src={cover} alt={`Cover Picture of the title ${title}`} />
+      <div className="flex justify-between">
         <div>
-            <h1>Blog</h1>
+          <img className="w-14" src={author_img} alt="Author Image" />
+          <div className="ml-6">
+            <h3 className="text-2x">{author}</h3>
+            <p>{posted_date}</p>
+          </div>
         </div>
-    );
+        <div>
+          <span>{reading_time} mid read</span>
+        </div>
+      </div>
+      <h2 className="text-4xl">{title}</h2>
+      <p>{hashtags.map(hash => <span key={hash}><a href="#"> #{hash}</a></span>)}</p>
+    </div>
+  );
 };
 
 Blog.propTypes = {
-    blog: PropTypes.object.isRequired
-}
+  blog: PropTypes.object.isRequired,
+};
 
 export default Blog;
