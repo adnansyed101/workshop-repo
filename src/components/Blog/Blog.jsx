@@ -27,10 +27,10 @@ const Blog = ({ blog, handleAddToBookmark }) => {
           </div>
         </div>
         <div>
-          <span>{reading_time} mid read</span>
+          <span>{reading_time} min read</span>
           <button
             className="ml-2 text-2xl text-red-600"
-            onClick={handleAddToBookmark}
+            onClick={()=> handleAddToBookmark(blog)}
           >
             <CiBookmark />
           </button>
