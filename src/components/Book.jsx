@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 const Book = ({ book }) => {
-  const { image, bookName, author, tags } = book;
+  const { image, bookName, author, tags, category } = book;
 
   return (
     <div className="card bg-base-100 w-96 shadow-xl p-6">
@@ -23,9 +23,38 @@ const Book = ({ book }) => {
         <div className="badge badge-secondary">NEW</div>
         <p>By: {author}</p>
         <div className="border-t-2 border-dashed"></div>
-        <div className="card-actions justify-end">
-          <div className="badge badge-outline">Fashion</div>
-          <div className="badge badge-outline">Products</div>
+        <div className="card-actions justify-between">
+          <div className="badge badge-outline">{category}</div>
+          <div className="">
+            <div className="rating">
+              <input
+                type="radio"
+                name="rating-2"
+                className="mask mask-star-2 bg-orange-400"
+              />
+              <input
+                type="radio"
+                name="rating-2"
+                className="mask mask-star-2 bg-orange-400"
+                defaultChecked
+              />
+              <input
+                type="radio"
+                name="rating-2"
+                className="mask mask-star-2 bg-orange-400"
+              />
+              <input
+                type="radio"
+                name="rating-2"
+                className="mask mask-star-2 bg-orange-400"
+              />
+              <input
+                type="radio"
+                name="rating-2"
+                className="mask mask-star-2 bg-orange-400"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
