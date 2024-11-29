@@ -9,7 +9,6 @@ const PORT = 5000;
 
 app.use(express.json());
 
-
 app.post("/api/products", async (req, res) => {
   const product = req.body; // user will send this data.
   if (!product.name || !product.price || !product.image) {
@@ -26,6 +25,17 @@ app.post("/api/products", async (req, res) => {
   } catch (err) {
     console.error("Error in creating product" + err.message);
     res.status(500).json({ success: false, message: "Server Error" });
+  }
+});
+
+app.delete("/api/products/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    await Product.findByIdAndDelete(id);
+    res.status(200).json({ success: true, message: "Product Deleted" });
+  } catch (err) {
+    res.status(404).json({ success: false, message: "Product not Found" });
   }
 });
 
