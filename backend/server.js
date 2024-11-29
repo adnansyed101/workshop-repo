@@ -9,6 +9,7 @@ const PORT = 5000;
 
 app.use(express.json());
 
+// Get All products.
 app.get("/api/products", async (req, res) => {
   try {
     const products = await Product.find({});
@@ -19,6 +20,7 @@ app.get("/api/products", async (req, res) => {
   }
 });
 
+// Create new product
 app.post("/api/products", async (req, res) => {
   const product = req.body; // user will send this data.
   if (!product.name || !product.price || !product.image) {
@@ -38,6 +40,7 @@ app.post("/api/products", async (req, res) => {
   }
 });
 
+// Delelte a product.
 app.delete("/api/products/:id", async (req, res) => {
   const { id } = req.params;
 
