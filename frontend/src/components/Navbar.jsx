@@ -31,7 +31,7 @@ const Navbar = () => {
           <Link to={"/"}>Product Store</Link>
         </Text>
         <HStack spacing={2} alignItems={"center"}>
-          <Link>
+          <Link to={"/create"}>
             <Button>
               <CiSquarePlus />
             </Button>
