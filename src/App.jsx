@@ -6,14 +6,14 @@ const App = () => {
       <motion.div
         className="box"
         animate={{
-          x: 100,
+          x: [0, 800, 800, 0, 0],
+          y: [0, 0, 300, 300, 0],
         }}
         transition={{
           duration: 3,
           delay: 1,
         }}
       ></motion.div>
-      <motion.div className="circle"></motion.div>
     </div>
   );
 };
