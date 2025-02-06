@@ -1,5 +1,7 @@
 const App = () => {
-  return <div>App</div>;
+  return <div>
+    <div className="box"></div>
+  </div>;
 };
 
 export default App;
