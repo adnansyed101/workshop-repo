@@ -1,9 +1,5 @@
-import React from 'react'
+const First = () => {
+  return <h1>First Blog</h1>;
+};
 
-const page = () => {
-  return (
-    <h1>First Blog</h1>
-  )
-}
-
-export default page
+export default First;
