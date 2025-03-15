@@ -1,7 +1,7 @@
 import { comments } from "./data";
 
 export async function GET() {
-  return new Response.json(comments);
+  return Response.json(comments);
 }
 
 export async function POST(request) {
@@ -12,7 +12,7 @@ export async function POST(request) {
   };
   comments.push(newComment);
 
-  return new Response(JSON.stringify(newComment), {
+  return Response(JSON.stringify(newComment), {
     headers: { "Content-Type": "application/json" },
     status: 201,
   });
