@@ -6,3 +6,14 @@ export async function GET(_request, { params }) {
 
   return Response.json(comment);
 }
+
+export async function PATCH(request, { params }) {
+  const { id } = await params;
+  const body = await request.json();
+  const { text } = body;
+
+  const index = comments.findIndex((comment) => comment.id === parseInt(id));
+  comments[index].text = text;
+
+  return Response.json(comments[index]);
+}
